@@ -60,7 +60,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y podman
+          sudo apt install -y podman skopeo
 
       - name: Pull Image
         uses: Wandalen/wretry.action@v3.8.0
