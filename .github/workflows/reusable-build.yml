@@ -57,6 +57,11 @@ jobs:
       - name: Checkout Push to Registry action
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y podman
+
       - name: Pull Image
         uses: Wandalen/wretry.action@v3.8.0
         with:
