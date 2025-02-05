@@ -20,7 +20,7 @@ concurrency:
 jobs:
   build:
     name: kernel-cache
-    runs-on: ubuntu-24.04
+    runs-on: ${{ matrix.runs_on }}
     permissions:
       contents: read
       packages: write
@@ -28,6 +28,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        runs_on:
+          - ubuntu-24.04
+          - ubuntu-24.04-arm
         kernel_flavor:
           - asus
           - bazzite
@@ -45,6 +48,10 @@ jobs:
             kernel_flavor: bazzite
           - fedora_version: 40
             kernel_flavor: coreos-testing
+          - runs_on: ubuntu-24.04-arm
+            kernel_flavor: asus
+          - runs_on: ubuntu-24.04-arm
+            kernel_flavor: surface
 
     steps:
       - name: Checkout Push to Registry action
