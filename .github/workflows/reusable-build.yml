@@ -52,6 +52,8 @@ jobs:
             kernel_flavor: asus
           - runs_on: ubuntu-24.04-arm
             kernel_flavor: surface
+          - runs_on: ubuntu-24.04-arm
+            fedora_version: 40
 
     steps:
       - name: Checkout Push to Registry action
